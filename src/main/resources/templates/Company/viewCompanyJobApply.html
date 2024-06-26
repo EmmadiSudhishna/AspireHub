@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<meta charset="UTF-8">
+<title>AddQuestion</title>
+
+<head th:replace="headers::headers">
+	<div th:include="title::title"></div>
+	<style>
+		 body {
+            background-color: rgb(234, 247, 255); /* Light gray */
+        }
+	</style>
+	</head>
+
+<body>
+	<div th:replace="Company/companymenu::companymenu"></div>
+	
+	<div class="container mt-4">
+		<h2 class="text-center mb-4"><b>Job Listings</b></h2>
+		<div class="table-responsive">
+			<table class="table custom-table  table-dark table-striped table-hover">
+				<thead class="custom-dark-table-head">
+					<tr>
+						<th>Jobseeker Name</th>
+						<th>Email</th>
+						<th>Qualifications</th>
+						<th>Company Name</th>
+						<th>Job Title</th>
+						<th>Status</th>
+						<th>Final Score</th>
+						<th>Operation</th><!-- Added new column -->
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Loop through job applications list -->
+					<tr th:each="jobApply : ${JobApplyList}">
+						<!-- Extracting data from JobApply object -->
+						<td th:text="${jobApply.jobseekers.firstName + ' ' + jobApply.jobseekers.lastName}"></td>
+						<td th:text="${jobApply.jobseekers.email}"></td>
+						<td th:text="${jobApply.jobseekers.qualifications}"></td>
+						<td th:text="${jobApply.vacancies.company.companyName}"></td>
+						<td th:text="${jobApply.vacancies.jobTitle}"></td>
+						<td th:text="${jobApply.status}"></td>
+						<td th:text="${jobApply.finalScore}"></td>
+						<!-- Button for selecting a candidate -->
+						<td>
+						
+							<a th:href="@{/selectCandidate/{applyId}(applyId=${jobApply.applyId})}"
+								class="btn btn-info btn-sm btn-custom">Select Candidate</a>
+						</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+	</div>
+
+	
+</body>
+
+</html>

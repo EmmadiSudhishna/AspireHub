@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application History</title>
+
+    <head th:replace="headers::headers">
+        <div th:include="title::title"></div>
+        
+        
+
+
+
+
+<style>
+        /* Custom CSS for the cards */
+        .card {
+            border: 1px solid rgb(254, 255, 193);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 12px rgb(252, 86, 252);
+        }
+
+        .card-header {
+            background-color: rgb(182, 254, 247);
+            border-bottom: 1px solid rgb(255, 140, 255);
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 10px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body p {
+            margin-bottom: 10px;
+        }
+        
+         @media (min-width: 576px) {
+            .col-md-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .col-md-6 {
+                flex: 0 0 33.333333%;
+                max-width: 33.333333%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .col-md-6 {
+                flex: 0 0 25%;
+                max-width: 25%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div th:replace="User/jobseekersmenu::jobseekersmenu"></div>
+
+<!-- Content section -->
+<div class="container">
+    <h2 class="mt-4 mb-4 text-center"><strong>Test Results</strong></h2>
+
+    <div class="row">
+        <!-- Iterate over the test result list -->
+        <div class="col-md-6" th:each="testResult : ${testResultList}">
+            <!-- Card for each test result -->
+            <div class="card">
+                <div class="card-header text-center">
+                   <strong> Test Result Details</strong>
+                </div>
+                <!-- Card body -->
+                <div class="card-body">
+                    <!-- Jobseeker details -->
+                    <p><strong>Name:</strong> <span
+                            th:text="${testResult.jobseekers.firstName} + ' ' + ${testResult.jobseekers.lastName}"></span>
+                    </p>
+                    <p><strong>Email:</strong> <span th:text="${testResult.jobseekers.email}"></span></p>
+                    <p><strong>Mobile:</strong> <span th:text="${testResult.jobseekers.mobile}"></span></p>
+                    <p><strong>Address:</strong> <span th:text="${testResult.jobseekers.address}"></span></p>
+
+                    <!-- Job details -->
+                    <p><strong>Job Title:</strong> <span th:text="${testResult.vacancies.jobTitle}"></span></p>
+
+                    <!-- Company details -->
+                    <p><strong>Company Name:</strong> <span
+                            th:text="${testResult.vacancies.company.companyName}"></span></p>
+
+                    <!-- Test Result details -->
+                    <p><strong>Score:</strong> <span th:text="${testResult.score}"></span></p>
+                </div>
+            </div>
+        </div>
+        <!-- End of iteration -->
+    </div>
+</div>
+
+
+
+</body>
+</html>

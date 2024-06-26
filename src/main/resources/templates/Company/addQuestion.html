@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<meta charset="UTF-8">
+<title>AddQuestion</title>
+
+<head th:replace="headers::headers">
+	<div th:include="title::title"></div>
+	<style>
+		.card {
+			border: 5px solid rgb(128, 0, 64);
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			margin-bottom: 20px;
+		}
+
+		.card-header {
+			background-color: rgb(128, 0, 64);
+			color: white;
+			border-radius: 10px 10px 0 0;
+		}
+
+		.card-body {
+			padding: 20px;
+		}
+
+		.form-group {
+			margin-bottom: 10px;
+		}
+
+		label {
+			font-weight: bold;
+		}
+
+		.btn-submit {
+			background-color: rgb(64, 128, 128);
+			border: none;
+			border-radius: 20px;
+			padding: 10px 20px;
+			color: white;
+			transition: background-color 0.3s;
+		}
+
+		.btn-submit:hover {
+			background-color: rgb(0, 128, 192);
+		}
+	</style>
+</head>
+
+<body>
+	<div th:replace="Company/companymenu::companymenu"></div>
+
+	<div class="container">
+		<h2 class="text-center mt-3">Add Question</h2>
+		<div class="row justify-content-center">
+			<div class="col-md-8">
+				<div class="card">
+					<div class="card-header">
+						<h4 class="mb-0 text-center">Question Details</h4>
+					</div>
+					<div class="card-body">
+						<form th:action="@{/saveQuestion}" method="post" th:object="${question1}">
+
+							<div class="row">
+								<div class="form-group">
+									<label for="vacancyId">Vacancy Id:</label>
+									<input type="number" th:id="vacancyId" th:name="vacancyId" th:value="${question1.vacancies.vacancyId}"
+										class="form-control" readonly>
+								</div>
+
+								<br>
+								<div class="row">
+
+									<div class="form-group">
+										<label for="testId">Test Id:</label>
+										<input type="number" th:name="testId" th:value="${question1.test.testId}" readonly />
+									</div>
+									<br>
+									<div class="col-md-6">
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										<div class="form-group">
+											<label for="question">Question:</label>
+											<textarea th:id="question" th:name="question" th:field="*{question}" rows="4" class="form-control"
+												required></textarea>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="form-group">
+											<label for="option1">Option 1:</label>
+											<input type="text" th:id="option1" th:name="option1" th:field="*{option1}" class="form-control"
+												required>
+										</div>
+										<div class="form-group">
+											<label for="option2">Option 2:</label>
+											<input type="text" th:id="option2" th:name="option2" th:field="*{option2}" class="form-control"
+												required>
+										</div>
+										<div class="form-group">
+											<label for="option3">Option 3:</label>
+											<input type="text" th:id="option3" th:name="option3" th:field="*{option3}" class="form-control"
+												required>
+										</div>
+										<div class="form-group">
+											<label for="option4">Option 4:</label>
+											<input type="text" th:id="option4" th:name="option4" th:field="*{option4}" class="form-control"
+												required>
+										</div>
+										<div class="form-group">
+											<label for="correct">Correct Option:</label>
+											<select th:id="correct" th:name="correct" class="form-control" th:field="*{correct}" required>
+												<option value="1">Option 1</option>
+												<option value="2">Option 2</option>
+												<option value="3">Option 3</option>
+												<option value="4">Option 4</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label for="score">Score:</label>
+											<input type="text" th:id="score" th:name="score" class="form-control" th:field="*{score}" required>
+										</div>
+									</div>
+								</div>
+								<div class="text-center">
+									<button type="submit" class="btn btn-submit">Submit</button>
+								</div>
+
+								<div th:if="${successMessage}" class="success-message">
+									<p th:text="${successMessage}"></p>
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

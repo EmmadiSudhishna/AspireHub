@@ -1,0 +1,175 @@
+/* Define custom CSS styles here */
+        
+         
+        .header {
+        background-color: #9bece1; /* Set background color */
+        padding: 20px; /* Add padding for spacing */
+        border-radius: 10px; /* Add border radius for rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    }
+
+    .header h1 {
+        color: #333; /* Set text color */
+    }
+
+    .header p {
+        color: #666; /* Set text color */
+    }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff6600;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+         .highlight {
+            color: #007bff; /* Blue color */
+        }
+        .marquee {
+            font-size: 1.2rem;
+            color: #333;
+            padding: 10px 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2f3d7e;
+            color: #fff;
+            font-size: 1.2em;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .cta-button:hover {
+            background-color: #9bee;
+        }
+        
+        /* Accordion Styles */
+       /* Accordion Styles */
+.accordion-container {
+    width: 100%;
+    max-width: 1000px; /* Adjusted width */
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    flex-direction: column; /* Align items vertically */
+}
+
+.accordion-item {
+    background-color: lightgreen;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 30px; /* Increased margin */
+    width: 110%; /* Ensure accordion item spans the full width */
+}
+
+.accordion-item:nth-child(2) .accordion-title {
+    background-color: darkturquoise;
+}
+
+.accordion-item:nth-child(3) .accordion-title {
+    background-color: plum;
+}
+
+.accordion-title {
+    color: #fff;
+    padding: 20px; /* Increased padding */
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-content {
+    padding: 20px; /* Increased padding */
+    display: none;
+    background-color: #fff;
+}
+
+.accordion-item.active .accordion-content {
+    display: block;
+}
+
+.plus-minus-toggle::before {
+    content: "+";
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+.accordion-item.active .plus-minus-toggle::before {
+    content: "-";
+}
+
+.accordion-title p {
+    color: black;
+}
+.company-box {
+            background-color: #f8f9fa; /* Light gray background */
+            border: 1px solid #dee2e6; /* Light border */
+            border-radius: 10px; /* Rounded corners */
+            padding: 10px; /* Padding around each company box */
+            margin-bottom: 10px; /* Spacing between each company box */
+        }
+        
+        .company-box img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Center the image */
+            height: 100px; /* Limit the height */
+        }
+     .company-box img {
+        transition: transform 0.3s ease;
+    }
+
+    .company-box img:hover {
+        transform: scale(1.1); /* Increase the size of the image on hover */
+    }
+
+
+    
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+            .cta-button {
+                font-size: 1em;
+            }
+            .card {
+  height: 85%;
+}
+
+
+            
+            
+        }

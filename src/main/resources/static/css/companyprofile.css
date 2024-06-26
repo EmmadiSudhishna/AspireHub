@@ -1,0 +1,130 @@
+body {
+            font-family: 'Lato', sans-serif; /* Modern font */
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc; /* Light background color */
+        }
+
+        /* Container for the profile card */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 30px;
+        }
+
+        /* Profile card styles */
+        .profile-card {
+            display: flex;
+             flex-direction: column;
+            background-color: rgb(255, 255, 255);
+            border-radius: 16px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            width: 700px; /* Adjust the width as needed */
+            overflow: hidden;
+            transition: box-shadow 0.3s ease; /* Transition for hover effect */
+        }
+
+        /* Unique hover effect on profile card */
+        .profile-card:hover {
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Enhance box-shadow on hover */
+        }
+
+        
+
+       
+        /* Company information section */
+        .company-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #3a3a3a; /* Dark gray color */
+        }
+
+        /* Company details styles */
+        .company-info p {
+            margin: 10px 0;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        .company-info strong {
+            font-weight: bold;
+            color: #007acc; /* Blue color */
+        }
+        /* Styles for the company-info section */
+/* Styles for the company-info section */
+.company-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #2c3e50; /* New color: dark blue-gray */
+    background-color: #fbe9e7;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for smooth effects */
+}
+
+/* Define the animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0; /* Start with the element being invisible */
+        transform: translateY(20px); /* Start slightly below its normal position */
+    }
+    to {
+        opacity: 1; /* End with the element fully visible */
+        transform: translateY(0); /* End at its normal position */
+    }
+}
+
+/* Apply the animation to the company name */
+.company-name {
+    animation: fadeInUp 2s ease-in-out; /* Apply the animation over 1 second, with easing */
+}
+
+/* Define the glowing effect animation */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px rgb(0, 255, 255);
+    }
+    50% {
+        text-shadow: 0 0 20px rgb(128, 0, 64);
+    }
+    100% {
+        text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+    }
+}
+
+/* Apply the glowing effect animation to the h2 element */
+h2.text-center.text-dark {
+    animation: glow 2s infinite alternate;
+    color: #343a40; /* Text color */
+}
+
+.company-details {
+    text-align: center;
+}
+
+.company-logo {
+     width: 200px; /* Adjust the size of the logo for better visibility */
+    height: auto; /* Maintain aspect ratio */
+    margin: 20px auto;/* Adjust as needed */
+}
+
+.company-name-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+@media (max-width: 768px) {
+    .profile-card {
+        width: 90%; /* Adjust width for smaller screens */
+    }
+}
+
+
+

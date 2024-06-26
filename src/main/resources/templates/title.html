@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="headers::headers">
+    <!-- Include title -->
+    <div th:replace="title::title"></div>
+   <!--<style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            z-index: 2000;
+            width: 100%; /* Adjust z-index as needed */
+        }
+        
+        .content {
+            margin-top: 80px; /* Adjust as needed */
+        }
+        
+         .navbar-brand {
+            margin-right: auto; /* Pushes the brand/logo to the left */
+        }
+        .text-animation {
+            opacity: 0;
+            animation: fadeIn 2s forwards; /* Use 2s duration for the animation */
+        }
+       .navbar-nav .nav-link.btn {
+    border: none !important;
+}
+
+
+        
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+            body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+        }
+    </style>-->
+</head>
+<body>
+    <div th:include="menu::menu"></div>
+
+    <div th:fragment="title">
+        <nav class="navbar navbar-expand-sm navbar-dark " style="background-color: #2f3d7e;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img th:src="@{/images/AspireLogo.png}" style="width: 90px;" class="rounded">
+                    <!--<span class="text-animation">Aspire</span>-->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav flex-column flex-sm-row justify-content-center align-items-center">
+                    <!-- Admin Section -->
+                    <li class="nav-item">
+                        <a th:href="@{/adminLogin}">
+                            <button type="submit" class="btn btn-dark">
+                                <h5>Admin</h5>
+                            </button>
+                      
+                    </li>
+					&nbsp;&nbsp;
+                    <!-- User Section -->
+                    <li class="nav-item">
+                        <a th:href="@{/jobseekersLogin}">
+                            <button type="submit" class="btn btn-dark">
+                                <h5>User</h5>
+                            </button>
+                        
+                    </li>
+					&nbsp;&nbsp;
+                    <!-- Company Section -->
+                    <li class="nav-item">
+                        <a th:href="@{/companyLogin}">
+                            <button type="submit" class="btn btn-dark">
+                                <h5>Company</h5>
+                            </button>
+                        </a>
+                    </li>&nbsp;&nbsp;
+                </ul>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

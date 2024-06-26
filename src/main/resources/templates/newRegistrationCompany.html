@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="headers::headers">
+    <div th:include="title::title"></div>
+    <style>
+        body {
+          /*  background-color: #c4e496;*/
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 70%;
+            margin: auto;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            background-color: rgb(128, 255, 255);
+            position: relative;
+            overflow: hidden;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+
+        label {
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(128, 0, 64);
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(128, 0, 64);
+        }
+
+        .bg-pattern {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #2c3e50, #3498db, #9b59b6, #34495e);
+            background-size: 400% 400%;
+            animation: gradientBg 10s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientBg {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <br/><br/>
+    <h2 class="text-center">Add Your Company</h2>
+    <div class="container card " >
+        <form th:action="@{/newRegistrationCompany}" th:object="${company}" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="companyId">Company Id</label>
+                    <input type="number" th:field="*{companyId}" class="form-control" required>
+                </div>
+            
+            
+             
+                <div class="col-sm-6">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" th:field="*{companyName}" class="form-control" required>
+                </div>
+            </div>
+           
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="Email">Email</label>
+                    <input type="text" th:field="*{email}" class="form-control" required>
+                </div>
+            
+            
+            
+                <div class="col-sm-6">
+                    <label for="mobile">Mobile</label>
+                    <input type="text" th:field="*{mobile}"  class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="location">Location</label>
+                    <input type="text" th:field="*{location}" class="form-control" required>
+                </div>
+          
+            
+            
+                <div class="col-sm-6">
+                    <label for="city">City</label>
+                    <input type="text" th:field="*{city}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="state">State</label>
+                    <input type="text" th:field="*{state}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="companyLevel">Company Level</label>
+                    <input type="text" th:field="*{companyLevel}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="url">Url</label>
+                    <input type="text" th:field="*{url}" class="form-control" required>
+                </div>
+           
+            
+           
+                <div class="col-sm-6">
+                    <label for="logo">Logo</label>
+                    <input type="file" name="logo1" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="password">Password</label>
+                    <input type="password" th:field="*{password}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="regDate">Register Date</label>
+                    <input type="date" th:field="*{regDate}" class="form-control" required>
+                </div>
+            </div>&nbsp;
+            
+            <div class="row text-center">
+                <div class="col-sm-12">
+                    <input type="submit" style="width: 150px" th:name="submit" class="form-control btn btn-outline-dark" value="Add Company">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 th:text="${responseString}"></h2>
+                </div>
+            </div>
+        </form>
+        <div class="bg-pattern"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Test</title>
+     <head th:replace="headers::headers">
+    <div th:include="title::title"></div>
+    
+   <style>
+        /* Custom CSS */
+        .card {
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 50%; /* Decrease card width */
+            margin: auto; /* Center the card */
+        }
+
+        .card-header {
+            background-color: rgb(255, 128, 192); /* Bootstrap primary color */
+            color: #ffffff;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .btn-primary {
+            background-color: rgb(0, 0, 64);
+            border-color: rgb(255, 0, 128);
+        }
+        
+         .form-group {
+            text-align: center;
+        }
+        
+         .success-message {
+            color: green;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="Company/companymenu::companymenu"></div>
+    <div class="container">
+        <h1 class="text-center">Add Test</h1>
+
+        <!-- Card wrapper for the form -->
+        <div class="card">
+            <div class="card-header">
+                <h3>Add Test Details</h3>
+            </div>
+            <div class="card-body">
+                
+                <form th:action="@{/saveTest}" method="post">
+					
+					
+					<div class="form-group">
+                    <label for="testId" ><strong>Vacancy Id:</strong></label>
+                    <!-- Hidden input to hold the vacanc<yId -->
+                   <input type="number" th:name="vacancyId" th:value="${vacancyId}" />
+
+		</div>
+		<br>
+                   
+                   <div class="form-group">
+                    <label for="testId" ><strong>Test Id:</strong></label>
+                    <input type="number" th:name="testId" th:value="${testId}" />
+                    </div>
+                    <br>
+
+
+                    <!-- Test Date -->
+                    <div class="form-group">
+                        <label for="testDate" ><strong>Test Date:</strong></label>
+                        <input type="date" class="form-control" th:id="testDate" th:name="testDate" th:value="*{testDate}" required>
+                    </div>
+					<br/>
+					
+
+                    <!-- Test Duration -->
+                    <div class="form-group">
+                        <label for="testDuration"><strong>Test Duration (in minutes):</strong></label>
+                        <input type="number" class="form-control" th:id="testDuration" th:name="testDuration" required>
+                    </div>
+					<br></br/>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                    
+                     <div th:if="${successMessage}" class="success-message">
+            <p th:text="${successMessage}"></p>
+        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>

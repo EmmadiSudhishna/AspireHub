@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application History</title>
+
+    <head th:replace="headers::headers">
+        <div th:include="title::title"></div>
+    </head>
+
+    <style>
+        /* Add any required styles here */
+        .container{
+			margin-top: 20px;
+		}
+        .card {
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: auto;
+        }
+
+        .card-header {
+            background-color: rgb(128, 0, 128); /* Purple background */
+            color: white; /* White text */
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .btn-primary {
+            background-color: rgb(0, 128, 128); /* Dark blue background */
+            border-color: rgb(64, 0, 0); /* Pink border */
+        }
+
+        @media screen and (max-width: 786px) {
+            th, td {
+                padding: 4px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="User/jobseekersmenu::jobseekersmenu"></div>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Job Application History</h2>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover" id="table_id">
+                    <thead>
+                    <tr>
+                        <th>Apply ID</th>
+                        <th>User ID</th>
+                        <th>Vacancy Id</th>
+                        <th>Company Id</th>
+                        <th>Company Name</th>
+                        <th>Company Level</th>
+                        <th>City</th>
+                        <th>Location</th>
+                        <th>State</th>
+                        <th>Url</th>
+                        <th>Job Title</th>
+                        <th>Open Date</th>
+                        <th>Close Date</th>
+                        <th>Post Date</th>
+                        <th>Requirements</th>
+                        <th>Description</th>
+                        <th>No. of vacancies</th>
+                        <th>Take Exam</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="jobApplication : ${jobApplications}">
+                        <td><span th:text="${jobApplication.applyId}"></span></td>
+                        <td><span th:text="${jobApplication.jobseekers.userId}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.vacancyId}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.company.companyId}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.company.companyName}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.company.companyLevel}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.company.city}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.company.location}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.company.state}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.company.url}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.jobTitle}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.openDate}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.closeDate}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.postDate}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.description}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.requirements}"></span></td>
+                        <td><span th:text="${jobApplication.vacancies.noOfVacancies}"></span></td>
+                        <td>
+                            
+   							<th:block th:if="${jobApplication.status == 'OnProgress'}">
+								<!-- Enable the button and set its color to red -->
+								<a th:href="@{/takeExam/{vacancyId}(vacancyId=${jobApplication.vacancies.vacancyId})}"
+									class="btn btn-sm btn-danger btn-custom">Take Exam</a>
+							</th:block>
+							<!-- Check if status is not "On progress" -->
+							<th:block th:unless="${jobApplication.status == 'OnProgress'}">
+								<!-- Disable the button and set its color to gray -->
+								<button type="button" class="bt btn-sm " disabled
+									style="background-color: gray; color: white;">Attempted</button>
+							</th:block>
+
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('#table_id').DataTable();
+        $('#success_id').slideUp(3000);
+    });
+</script>
+</body>
+</html>

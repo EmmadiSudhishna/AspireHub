@@ -1,0 +1,88 @@
+ 
+		.login-container {
+    width: 500px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #333;
+}
+
+.login-container .form-group {
+    margin-bottom: 20px;
+}
+
+.login-container input[type="email"],
+.login-container input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.login-container input[type="submit"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.login-container .register-link {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.login-container .register-link:hover {
+    color: #0056b3;
+}
+
+.login-container .response-text {
+    margin-top: 20px;
+}
+.error-message {
+    color: red; /* Example color for error message */
+    font-size: 14px; /* Example font size for error message */
+    margin-top: 10px; /* Adjust spacing as needed */
+}
+/* Adjustments for small screens */
+@media only screen and (max-width: 600px) {
+    .login-container {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* Adjustments for medium screens */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .login-container {
+        width: 60%;
+        margin: 0 auto;
+    }
+}
+
+/* Adjustments for large screens */
+@media only screen and (min-width: 1025px) {
+    .login-container {
+        width: 40%;
+        margin: 0 auto;
+    }
+}

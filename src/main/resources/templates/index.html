@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="headers::headers">
+    <!-- Include title -->
+    <div th:replace="title::title"></div>
+    
+     <link rel="stylesheet" th:href="@{/css/index.css}">
+    
+</head>
+<body>
+    <!-- Include menu -->
+    <div th:include="menu::menu"></div>
+    
+    
+    <div class="container mt-5">
+        <div class="header">
+            <h1 class="animate__animated animate__bounce">Welcome to our <span style="color: firebrick;">"Aspire Hub"</span> Website</h1>
+            <p class="marquee animate__animated animate__slideInLeft">"Elevate your career aspirations with <span class="highlight">AspireHub</span>: Where passion meets profession."</p>
+          </div>  
+        </div>
+        
+   <!-- <div class="container-fluid mt-5">
+     <!-- Carousel -->
+<!--<div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+  <!-- Indicators/dots -->
+ <!-- <div class="carousel-indicators">
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+    
+  </div>-->
+  
+  <!-- The slideshow/carousel -->
+ <!-- <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../images/cur1.webp"  class="d-block" style="width:100%">
+    </div>
+    <div class="carousel-item">
+      <img src="../images/cur2.webp"  class="d-block" style="width:100%">
+    </div>
+    
+    <div class="carousel-item">
+      <img src="../images/cur4.webp"  class="d-block" style="width:100%">
+    </div>
+  </div>-->
+  
+  <!-- Left and right controls/icons -->
+  <!--<button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>    
+    </div>-->
+   <div class="container-fluid mt-5">
+    <!-- Heading for Top Companies Hiring -->
+    <div class="row mb-4">
+        <div class="col text-center">
+            <h2 class="text-bold"><u>Top Companies Hiring</u></h2>
+        </div>
+    </div>
+
+    <!-- Grid layout to showcase company logos -->
+    <div class="row justify-content-center"> <!-- Center the grid -->
+        <!-- Company 1 -->
+        <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/Accenture1.webp}" style="width: 180px;"  class="rounded" alt="Accenture">
+            </div>
+        </div>
+        <!-- Company 2 -->
+        <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/Qualcomm1.webp}" style="width: 180px;"  class="rounded" alt="Qualcomm">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/tech-mahindra1.webp}" style="width: 180px;"   class="rounded" alt="Tech Mahindra">
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/infosys1.jpg}"style="width: 180px;"  class="rounded" alt="Infosys">
+            </div>
+        </div>
+        
+         <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/Microsoft1.jpg}" style="width: 180px;"  class="rounded"alt="Microsoft">
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/Oracle1.png}" style="width: 180px;"  class="rounded" alt="Oracle">
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/Google1.jpg}" style="width: 180px;"  class="rounded"alt="Google">
+            </div>
+        </div>
+        
+         <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/tcs1.png}" style="width: 180px;"  class="rounded" alt="TCS">
+            </div>
+        </div>
+        
+        <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/cisco1.jpg}" style="width: 180px;"  class="rounded"alt="Cisco">
+            </div>
+        </div>
+        
+         <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/Cognizant1.jpg}" style="width: 180px;" class="rounded" alt="Cognizant">
+            </div>
+        </div>
+        
+         
+         <div class="col-md-3">
+            <div class="company-box">
+                <img th:src="@{/images/Infor1.png}" style="width: 180px;" class="rounded" alt="Infor">
+            </div>
+        </div>
+        <!-- Add more columns for additional companies -->
+    </div>
+</div>
+
+    <div class="container">
+    <div class="row">
+        <!-- Large image on the left -->
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <img th:src="@{/images/hire.jpg}" class="img-fluid" alt="Large Image">
+            </div>
+        </div>
+        <!-- Small cards on the right -->
+        <div class="col-md-6">
+            <div class="row">
+                <!-- Small card 1 -->
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <img th:src="@{/images/cy1.jpg}" class="card-img-top" alt="Company 1 Image">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold;">Zycus</h5>
+                            <p class="mb-0">Zycus - Solution Architect - Microservices Architecture/Java</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Small card 2 -->
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <img th:src="@{/images/cy3.jpg}" class="card-img-top" alt="Company 2 Image">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold;">Virtusa</h5>
+                            <p class="mb-0">Virtusa - Database Performance Engineer -PostgreSQL/MongoDB  </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more small cards here -->
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <img th:src="@{/images/cap.jpg}" class="card-img-top" alt="Company 3 Image">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold;">Capgemini</h5>
+                            <p class="mb-0">Capgemini - Networking Engineer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <div class="card h-100">
+                        <img th:src="@{/images/sklogo.jpeg}" class="card-img-top" alt="Company 4 Image">
+                        <div class="card-body">
+                            <h5 class="card-title" style="font-weight: bold;">SK SoftSolutions</h5>
+                            <p class="mb-0">SK - FullStack Java Developer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12 ">
+            <h2 class="text-center"> "FAQs" (Frequently Asked Questions) </h2>
+            <div class="accordion-container">
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                      <p><strong>How do I start my job search?</strong>   </p>
+                        <div class="plus-minus-toggle"></div>
+                    </div>
+                    <div class="accordion-content">
+                        
+                        <p> To start your job search, consider updating your resume,
+							 creating profiles on job search websites, networking with professionals in your field, and applying to relevant job postings.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                       <p><strong>How does the platform assist job seekers in navigating the job market and staying informed about industry 
+							trends and job market insights?</strong> </p>
+                        <div class="plus-minus-toggle"></div>
+                    </div>
+                    <div class="accordion-content">
+                        
+                        <p>  Explore features such as access to job market reports, salary insights, and industry news updates, 
+							as well as guidance on 
+							emerging job trends and in-demand skills to
+							 help job seekers make informed decisions about their career paths.</p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <div class="accordion-title">
+                        <p><strong>Can job seekers access networking opportunities or connect with 
+							industry professionals through the platform?</strong> </p>
+                        <div class="plus-minus-toggle"></div>
+                    </div>
+                    <div class="accordion-content">
+                        
+                        <p>   Find out if the platform hosts networking events, virtual job fairs, or community forums where job seekers can engage with
+							 recruiters and industry professionals, 
+							participate in informational interviews, and expand their professional network.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer th:include="footer::footer"></footer> 
+
+<script>
+    $(document).ready(function(){
+        $('.accordion-content').hide();
+        $('.accordion-title').click(function(){
+            $(this).next('.accordion-content').slideToggle();
+            $(this).find('.plus-minus-toggle').toggleClass('active');
+        });
+    });
+</script>
+</body>
+</html>

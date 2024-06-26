@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="title::title"></div>
+    <div th:replace="headers::headers"></div>
+    
+    <style>
+        /* Example CSS for responsiveness */
+        .card {
+            width: 90%;
+            margin: auto;
+            overflow-x: auto; /* Add horizontal scroll on small screens */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        /* Adjust styles for smaller screens */
+        @media only screen and (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div th:replace="Admin/adminmenu::adminmenu"></div>
+    <div class="container">
+		<br/>
+    <h2 class="text-center">Job Seekers Details</h2>
+    <div class="table-responsive">
+    <table class="table table-borderless table-danger table-hover" id="table_id">
+        <thead class="table-secondary">
+               <tr>
+                    <th>User Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Register Date</th>
+                    <th>Date Of Birth</th>
+                    <th>Gender</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Address</th>
+                    <!--<th>Profile Pic</th>-->
+                    <th>Qualification</th>
+                    <th>Experience</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="jobseekers : ${jobseekersList}">
+                    <td th:text="${jobseekers.userId}"></td>
+                    <td th:text="${jobseekers.firstName}"></td>
+                    <td th:text="${jobseekers.lastName}"></td>
+                    <td th:text="${jobseekers.regDate}"></td>
+                    <td th:text="${jobseekers.dateOfBirth}"></td>
+                    <td th:text="${jobseekers.gender}"></td>
+                    <td th:text="${jobseekers.email}"></td>
+                    <td th:text="${jobseekers.mobile}"></td>
+                    <td th:text="${jobseekers.address}"></td>
+                    <!--<td th:text="${jobseekers.profilepic}"></td>-->
+                    <td th:text="${jobseekers.qualifications}"></td>
+                    <td th:text="${jobseekers.experience}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    
+    <script>
+    $(document).ready(function() {
+        $('#table_id').DataTable();
+        $('#success_id').slideUp(3000);
+    });
+</script>
+    
+</body>
+</html>

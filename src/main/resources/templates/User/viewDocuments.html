@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application History</title>
+
+    <head th:replace="headers::headers">
+        <div th:include="title::title"></div>
+        
+        
+       
+    </head>
+    <body>
+		<div th:replace="User/jobseekersmenu::jobseekersmenu"></div>
+		
+
+	<div class="container mt-5">
+		<h1>My Documents</h1>
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Document ID</th>
+						<th>Document Type</th>
+						<th>Document File</th>
+						<!--<th>Edit</th>-->
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<!-- Iterate over documentList and display each document -->
+					<tr th:each="document : ${documentList}">
+						<td th:text="${document.documentId}"></td>
+						<td th:text="${document.documentType}"></td>
+						<td>
+							<a th:href="@{http://localhost:8090/uploads/{documentFile}(documentFile=${document.documentFile})}"
+								download>
+								Download
+							</a>
+						</td>
+						<!--<td><a th:href="@{/editDocument/{documentId}(documentId=${document.documentId})}"
+								class="btn btn-primary">Edit</a></td>-->
+
+						<td><a th:href="@{/deleteDocument/{documentId}(documentId=${document.documentId})}"
+								class="btn btn-danger d-flex justify-content-center align-items-center me-2">Delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+</body>
+
+</html>

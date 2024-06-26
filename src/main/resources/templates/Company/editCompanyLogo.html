@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html>
+	<meta charset="UTF-8">
+
+	<head th:replace="headers::headers">
+		<div th:include="title::title"></div>
+		<title>Company Profile</title>
+		<style>
+			/* CSS styles for the container */
+.container {
+    margin-top: 50px; /* Add space at the top */
+    max-width: 600px; /* Limit container width */
+    margin: 50px auto 0; /* Center container horizontally and apply margin-top */
+    padding: 20px; /* Add padding inside the container */
+    background-color: #f8f9fa; /* Light gray background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+/* CSS styles for the form */
+/* CSS styles for the form group */
+.form-group {
+    margin-bottom: 20px; /* Add space between form elements */
+    display: flex; /* Use Flexbox */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+}
+
+/* CSS styles for the label */
+.form-group label {
+    margin-right: 10px; /* Add some space between the label and the input */
+}
+
+
+/* CSS styles for the file input */
+.form-control-file {
+    width: 100%; /* Make the file input full width */
+}
+
+/* CSS styles for the button */
+.btn-primary {
+    background-color: rgb(255, 0, 128); /* Blue button background */
+    border-color: #007bff; /* Blue button border */
+    width: 30%; /* Make the button full width */
+}
+
+/* CSS styles for the button on hover */
+.btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    border-color: #0056b3; /* Darker blue border on hover */
+}
+
+/* CSS styles for the card header */
+.card-header {
+    background-color: rgb(188, 254, 248); /* Blue header background */
+    color: rgb(128, 64, 0); /* White header text color */
+    border-radius: 10px 10px 0 0; /* Rounded corners for the top */
+    padding: 10px 20px; /* Add padding inside the header */
+    margin-bottom: 20px; /* Add space below the header */
+}
+
+		</style>
+		</head>
+
+<body>
+	<div th:replace="Company/companymenu::companymenu"></div>
+	
+	 <div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h2 class="text-center">Upload Company Logo</h2>
+        </div>
+        <div class="card-body text-center">
+            <form th:action="@{/uploadLogo}" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="logo"><strong>Select Logo:</strong></label>
+                    <input type="file" class="form-control-file"  th:name="logo1" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Upload Logo</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
+	

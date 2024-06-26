@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div th:replace="headers::headers"></div>
+    <div th:include="title::title"></div>
+    
+    
+</head>
+
+<body>
+    <div th:replace="Admin/adminmenu::adminmenu"></div>
+    <div class="container">
+		<br/>
+		 <h2 class="text-center">Company Details</h2>
+    <div class="table-responsive">
+    <table class="table table-borderless table-danger table-hover" id="table_id">
+        <thead class="table-secondary">
+        
+       
+            
+                <tr>
+                    <th>Company Id</th>
+                    <th>Company Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Location</th>
+                    <th>City</th>
+                    <th>State</th>
+                 	
+                    <th>URL</th>
+                    <th>Register Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="company : ${companyList}">
+                    <td th:text="${company.companyId}"></td>
+                    <td th:text="${company.companyName}"></td>
+                    <td th:text="${company.Email}"></td>
+                    <td th:text="${company.mobile}"></td>
+                    <td th:text="${company.location}"></td>
+                    <td th:text="${company.city}"></td>
+                    <td th:text="${company.state}"></td>
+                   	
+                    <td th:text="${company.url}"></td>
+                    <td th:text="${company.regDate}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+    
+    <script>
+    $(document).ready(function() {
+        $('#table_id').DataTable();
+        $('#success_id').slideUp(3000);
+    });
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Job Application History</title>
+
+    <head th:replace="headers::headers">
+        <div th:include="title::title"></div>
+        
+        
+        <style>
+		body {
+			font-family: 'Poppins', sans-serif;
+		}
+
+		.navbar-custom {
+			background-color: #343a40;
+			/* Dark color for the navbar */
+		}
+
+		.navbar-nav .nav-link.dropdown-toggle::after {
+			transition: transform 0.3s ease;
+		}
+
+		.navbar-nav .nav-item.dropdown:hover .dropdown-menu {
+			display: block;
+		}
+
+		.navbar-custom .navbar-nav .nav-link {
+			color: #ffffff;
+			/* Change the text color */
+		}
+
+		.navbar-custom .navbar-nav .nav-link:hover {
+			color: #ffffff;
+			/* Change the text color on hover */
+		}
+
+		.navbar-custom .dropdown-menu {
+			background-color: #343a40;
+			/* Dark color for the dropdown menu */
+		}
+
+		.navbar-custom .dropdown-menu .dropdown-item {
+			color: #ffffff;
+			/* Change the text color in dropdown items */
+		}
+
+		.navbar-custom .dropdown-menu .dropdown-item:hover {
+			color: blue;
+			/* Change the text color on hover in dropdown items */
+		}
+	</style>
+    </head>
+    <body>
+		<div th:replace="User/jobseekersmenu::jobseekersmenu"></div>
+		
+		
+
+	<h2>Add Document</h2>
+	<div class="container mt-5">
+		<div class="row justify-content-center">
+			<div class="col-md-6">
+				<div class="card">
+					<div class="card-body">
+						<h4 class="card-title">Add Documents</h4>
+						<form class="container" th:action="@{/addingDocuments}" th:object="${certificate}"
+							method="post" enctype="multipart/form-data">
+							<div class="form-group">
+								<label for="documentType" class="form-label">Document Name</label>
+								<input type="text" class="form-control" th:id="documentType" th:name="documentType" required>
+							</div>
+							<div class="form-group">
+								<label for="documentFile" class="form-label">Document File</label>
+								<input type="file" class="form-control" th:name="documentFile1" required>
+							</div>
+							<div class="text-center">
+								<input type="submit" value="Apply" class="btn btn-danger btn-sm btn-custom mt-5">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Bootstrap JS (Optional) -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<!-- Custom JavaScript -->
+	<script>
+		// Add your custom JavaScript here
+		// Example: document.getElementById('documentForm').addEventListener('submit', function(event) {...});
+	</script>
+</body>
+
+</html>
+	</body>

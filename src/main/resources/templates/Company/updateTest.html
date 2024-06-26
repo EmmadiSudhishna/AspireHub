@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
+<meta charset="UTF-8">
+<title>View Questions</title>
+
+<head th:replace="headers::headers">
+	<div th:include="title::title"></div>
+	<style>
+		/* Add any required styles here */
+		.card {
+			margin-top: 50px;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			width: 50%;
+			margin: auto;
+			background-color: rgb(254, 220, 226);
+		}
+
+		.card-header {
+			background-color: rgb(179, 251, 253);
+			color: rgb(0, 0, 0);
+		}
+
+		.card-body {
+			padding: 20px;
+		}
+
+		.container {
+			margin-top: 50px;
+		}
+
+		/* Responsive CSS */
+		table {
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		/* Adjust styles for smaller screens */
+		@media only screen and (max-width: 768px) {
+
+			th,
+			td {
+				padding: 6px;
+				font-size: 12px;
+			}
+		}
+
+		th {
+			background-color: #4A90E2;
+			/* Unique color for table headers */
+			color: #ffffff;
+			text-align: left;
+			padding: 12px;
+		}
+
+		/* Customize table rows */
+		tr {
+			border-bottom: 1px solid #dddddd;
+			/* Light border between rows */
+		}
+
+		/* Alternate row colors */
+		tbody tr:nth-child(odd) {
+			background-color: rgb(0, 128, 192);
+			/* Light gray for alternate rows */
+		}
+
+		/* Customize table cells */
+		th,
+		td {
+			padding: 12px;
+			border: none;
+		}
+
+		/* Customize hover effect for table rows */
+		tbody tr:hover {
+			background-color: #e6f7ff;
+			/* Light blue when hovering over a row */
+		}
+	</style>
+</head>
+
+<body>
+	<div th:replace="Company/companymenu::companymenu"></div>
+	<div class="container">
+		<div class="card">
+			<div class="card-header"> 
+				<h3 class="text-center">Update Test</h3>
+			</div>
+			<div class="card-body">
+				<form th:action="@{/updatedTest}" method="post" th:object="${test}">
+					
+					<input type="hidden" th:value="${testId}">
+					<div class="form-group">
+						<label for="testDate"><strong>Test Date:</strong></label>
+						<input type="date" class="form-control" th:id="testDate" th:name="testDate"
+							th:value="${test.testDate}">
+					</div>
+					<div class="form-group">
+						<label for="testDuration"><strong>Test Duration (in minutes):</strong></label>
+						<input type="number" class="form-control" th:id="testDuration" th:name="testDuration"
+							th:value="${test.testDuration}">
+					</div>
+					<div class="form-group">
+						<label for="vacancyId"><strong>Vacancy ID:</strong></label>
+						<input type="number" class="form-control" th:id="vacancyId" th:name="vacancyId"
+							th:value="${test.vacancies.vacancyId}" readonly>
+					</div>
+					<br />
+					<button type="submit" class="btn btn-primary">Update Test</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

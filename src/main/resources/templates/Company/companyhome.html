@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<meta charset="UTF-8">
+<title>AddQuestion</title>
+
+<head th:replace="headers::headers">
+	<div th:include="title::title"></div>
+	
+	
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* Apply box-sizing to all elements */
+        }
+         body {
+      background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+        }
+       .content {
+		   font-family: 'The Chubby', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .text-center {
+            font-size: 2em;
+            animation: pulse 2s infinite alternate;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.2);
+            }
+            }
+       .welcome-symbol {
+		    font-size: 6em;
+            margin-right: 10px; /* Adjust margin as needed */
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div th:replace="Company/companymenu::companymenu"></div>
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+    <div class="content">
+         <!-- Welcome symbol entity -->
+        
+        <h3 class="text-center" style="font-size: 2em;">Welcome to Company Home</h3> <!-- Adjust font-size as needed -->
+        
+    </div>
+    
+    
+    
+    
+    
+     
+</body>
+
+</html>

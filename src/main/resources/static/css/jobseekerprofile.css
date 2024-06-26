@@ -1,0 +1,55 @@
+body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .profile-card {
+            background-color: rgb(189, 243, 255);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .company-details {
+            text-align: center;
+        }
+        
+        .company-details img {
+            width: 200px;
+            height: auto;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgb(64, 0, 64);
+        }
+        
+        .company-details h2 {
+            color: rgb(64, 0, 64);
+            margin-bottom: 20px;
+        }
+        
+        .company-details ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .company-details ul li {
+            margin-bottom: 10px;
+        }
+        
+        .company-details ul li strong {
+            font-weight: bold;
+            margin-right: 10px;
+            color: rgb(64, 0, 64);
+        }
+        
+        .company-details ul li span {
+            color: rgb(64, 0, 64);
+        }

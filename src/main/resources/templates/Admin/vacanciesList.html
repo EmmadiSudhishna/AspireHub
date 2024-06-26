@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View All Vacancies</title>
+    <head th:replace="headers::headers">
+    <div th:include="title::title"></div>
+    
+    
+     <style>
+        /* Responsive CSS */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #dddddd;
+        }
+        /* Adjust styles for smaller screens */
+        @media only screen and (max-width: 768px) {
+            th, td {
+                padding: 6px;
+                font-size: 12px;
+            }
+        }
+    </style>
+    
+    
+</head>
+<body>
+	<div th:replace="Admin/adminmenu::adminmenu"></div>
+	<div class="container">
+		<br/>
+    <h1 class="text-center">All Vacancies</h1>
+     <div class="table-responsive">
+		   <div style="overflow-x:auto;">
+    <table class="table table-borderless table-danger table-hover" id="table_id">
+        <thead class="table-secondary">
+        
+       
+  
+    
+            <tr>
+                <th>Vacancy ID</th>
+                <th>Job Title</th>
+                <th>Description</th>
+                <th>Requirements</th>
+                <th>Number of Vacancies</th>
+                <th>Post Date</th>
+                <th>Open Date</th>
+                <th>Close Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iterate over each vacancy and display its details -->
+            <tr th:each="vacancies : ${vacanciesList}">
+                <td th:text="${vacancies.vacancyId}"></td>
+                <td th:text="${vacancies.jobTitle}"></td>
+                <td th:text="${vacancies.description}"></td>
+                <td th:text="${vacancies.requirements}"></td>
+                <td th:text="${vacancies.noOfVacancies}"></td>
+                <td th:text="${vacancies.postDate}"></td>
+                <td th:text="${vacancies.openDate}"></td>
+                <td th:text="${vacancies.closeDate}"></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    </div>
+    
+     <script>
+    $(document).ready(function() {
+        $('#table_id').DataTable();
+        $('#success_id').slideUp(3000);
+    });
+</script>
+</body>
+</html>

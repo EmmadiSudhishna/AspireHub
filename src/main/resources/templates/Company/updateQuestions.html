@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
+<meta charset="UTF-8">
+<title>View Questions</title>
+
+<head th:replace="headers::headers">
+	<div th:include="title::title"></div>
+	
+	 <style>
+            /* Add any required styles here */
+            .card {
+                margin-top: 50px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 60%;
+                margin: auto;
+            }
+
+            .card-header {
+                background-color: rgb(179, 251, 253);
+                color: rgb(0, 0, 0);
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+
+            .container {
+                margin-top: 50px;
+            }
+
+            /* Responsive CSS */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            /* Adjust styles for smaller screens */
+            @media only screen and (max-width: 768px) {
+                th,
+                td {
+                    padding: 6px;
+                    font-size: 12px;
+                }
+            }
+
+            th {
+                background-color: #4A90E2;
+                /* Unique color for table headers */
+                color: #ffffff;
+                text-align: left;
+                padding: 12px;
+            }
+
+            /* Customize table rows */
+            tr {
+                border-bottom: 1px solid #dddddd;
+                /* Light border between rows */
+            }
+
+            /* Alternate row colors */
+            tbody tr:nth-child(odd) {
+                background-color: rgb(0, 128, 192);
+                /* Light gray for alternate rows */
+            }
+
+            /* Customize table cells */
+            th,
+            td {
+                padding: 12px;
+                border: none;
+            }
+
+            /* Customize hover effect for table rows */
+            tbody tr:hover {
+                background-color: #e6f7ff;
+                /* Light blue when hovering over a row */
+            }
+        </style>
+
+    </head>
+
+<body>
+    <div th:replace="Company/companymenu::companymenu"></div>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Edit Question</h3>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/updateQuestion}" method="post" th:object="${question}">
+                    <!-- Input fields for editing question data -->
+                    <input type="hidden" th:name="questionId" th:value="${question.questionId}">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label><strong>Test ID:</strong></label>
+                            <input type="text" class="form-control" th:name="testId" th:value="${question.test.testId}" readonly>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label><strong>Vacancy ID:</strong></label>
+                            <input type="text" class="form-control" th:name="vacancyId" th:value="${question.vacancies.vacancyId}" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label><strong>Question:</strong></label>
+                            <input type="text" class="form-control" th:name="question" th:value="${question.question}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label><strong>Option 1:</strong></label>
+                            <input type="text" class="form-control" th:name="option1" th:value="${question.option1}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label><strong>Option 2:</strong></label>
+                            <input type="text" class="form-control" th:name="option2" th:value="${question.option2}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label><strong>Option 3:</strong></label>
+                            <input type="text" class="form-control" th:name="option3" th:value="${question.option3}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                            <label><strong>Option 4:</strong></label>
+                            <input type="text" class="form-control" th:name="option4" th:value="${question.option4}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label><strong>Correct Option:</strong></label>
+                            <input type="text" class="form-control" th:name="correct" th:value="${question.correct}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                            <label><strong>Score:</strong> </label>
+                            <input type="text" class="form-control" th:name="score" th:value="${question.score}">
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>   

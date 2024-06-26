@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="headers::headers">
+    <div th:include="title::title"></div>
+</head>
+
+<body style="background-color:lavender">
+    <div th:replace="Company/companymenu::companymenu"></div>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card border-success" style="width: 650px;">
+            <div class="card-header text-white" style="background-color: #34495e;">
+                <h2 class="mb-0 text-center">Add Vacancy</h2>
+            </div>
+            <div class="form-group">
+                        <label for="vacancyId" class="fw-bold">CompanyId:</label>
+		<input type="text" class="form-control" th:name="companyId"	th:value="${companyId}" />
+		</div>
+            <div class="card-body" style="background-color: #e6f7ff; max-height: 400px; overflow-y: auto;">
+                <form th:action="@{/addVacancy}" th:object="${vacancies}" method="post">
+                    <div class="form-group">
+                        <label for="vacancyId" class="fw-bold">VacancyId:</label>
+                        <input type="text" th:field="*{vacancyId}" class="form-control" th:id="vacancyId" th:name="vacancyId" required>
+                    </div><br/>
+
+                    <div class="form-group">
+                        <label for="postDate" class="fw-bold">Post Date:</label>
+                        <input type="text" th:field="*{postDate}" class="form-control-file" th:id="postDate" th:name="postDate" required>
+                    </div><br/>
+
+                    <div class="form-group">
+                        <label for="jobTitle" class="fw-bold">Job Title:</label>
+                        <input type="text" th:field="*{jobTitle}" class="form-control-file" th:id="jobTitle" th:name="jobTitle" required>
+                    </div><br/>
+
+                    <div class="form-group">
+                        <label for="description" class="fw-bold">Description:</label>
+                        <textarea th:field="*{description}" class="form-control" th:id="description" th:name="description" required></textarea>
+                    </div><br/>
+
+                    <div class="form-group">
+                        <label for="requirements" class="fw-bold">Requirements:</label>
+                        <textarea th:field="*{requirements}" class="form-control" th:id="requirements" th:name="requirements" required></textarea>
+                    </div><br/>
+
+                    <div class="form-group">
+                        <label for="noOfVacancies" class="fw-bold">Number of Vacancies:</label>
+                        <input type="text" th:field="*{noOfVacancies}" class="form-control-file" th:id="noOfVacancies" th:name="noOfVacancies" required>
+                    </div><br/>
+
+                    <div class="form-group">
+                        <label for="openDate" class="fw-bold">Open Date:</label>
+                        <input type="text" th:field="*{openDate}" class="form-control-file" th:id="openDate" th:name="openDate" required>
+                    </div><br/>
+
+                    <div class="form-group">
+                        <label for="closeDate" class="fw-bold">Close Date:</label>
+                        <input type="text" th:field="*{closeDate}" class="form-control-file" th:id="closeDate" th:name="closeDate" required>
+                    </div><br/>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fas fa-plus"></i> Add Vacancy
+                        </button>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 th:text="${responseString}"></h2>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

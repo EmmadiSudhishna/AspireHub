@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+
+	<head th:replace="headers::headers">
+		<div th:include="title::title"></div>
+		<title>Jobseeker Profile</title>
+		<link rel="stylesheet" th:href="@{/css/jobseekerprofile.css}">
+		<!-- Assuming you have a CSS file in styles folder -->
+		<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+		<!-- Custom styles -->
+	</head>
+
+<body>
+	<div th:replace="User/jobseekersmenu::jobseekersmenu"></div>
+	<div class="container">
+    <div class="profile-card">
+		<center>
+        <div class="company-details text-center">
+            <img th:src="@{http://localhost:8091/AspireHub/uploads/{profilePic}(profilePic=${jobseeker1.profilepic})}"
+                 alt="Profile Picture" class="rounded-pill" style="max-width: 180px;">
+                 </center>
+                 <center>
+                 <div>
+        <a th:href="@{/editProfilePic}">
+            <i class="fas fa-edit" style="margin-top: 10px;"></i>
+        </a>
+        </center>
+    
+            <h2>Personal Information</h2>
+             
+            <ul>
+                <li><strong>User ID:</strong> <span th:text="${session.jobseeker1.userId}"></span></li>
+                <li><strong>First Name:</strong> <span th:text="${session.jobseeker1.firstName}"></span></li>
+                <li><strong>Last Name:</strong> <span th:text="${session.jobseeker1.lastName}"></span></li>
+                <li><strong>Registration Date:</strong> <span th:text="${session.jobseeker1.regDate}"></span></li>
+                <li><strong>Date of Birth:</strong> <span th:text="${session.jobseeker1.dateOfBirth}"></span></li>
+                <li><strong>Gender:</strong> <span th:text="${session.jobseeker1.gender}"></span></li>
+                <li><strong>Email:</strong> <span th:text="${session.jobseeker1.email}"></span></li>
+                <li><strong>Mobile:</strong> <span th:text="${session.jobseeker1.mobile}"></span></li>
+                <li><strong>Address:</strong> <span th:text="${session.jobseeker1.address}"></span></li>
+                <li><strong>Profile Picture:</strong> <span th:text="${session.jobseeker1.profilepic}"></span></li>
+                <li><strong>Qualifications:</strong> <span th:text="${session.jobseeker1.qualifications}"></span></li>
+                <li><strong>Experience:</strong> <span th:text="${session.jobseeker1.experience}"></span></li>
+                
+                
+                
+            
+            <div class="text-center">
+            <a th:href="@{/editJobSeekerProfile/{userId}(userId=${session.jobseeker.userId})}" class="btn btn-primary">Edit Profile</a>
+        </div>
+            </ul>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</body>
+</html>

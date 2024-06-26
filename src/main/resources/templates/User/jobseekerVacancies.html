@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<html>
+<meta charset="UTF-8">
+
+<head th:replace="headers::headers">
+    <div th:include="title::title"></div>
+    <title>Jobseeker Vacancies</title>
+
+    <style>
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid rgb(255, 128, 255);
+            width: 80%;
+            max-width: 500px;
+            /* Limit the maximum width of the modal */
+            border-radius: 10px;
+            /* Add rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* Add shadow */
+        }
+
+        /* Modal close button */
+        .close {
+            color: rgb(0, 128, 255);
+            float: left;
+            /* Ensure the close button is floated to the left */
+            font-size: 28px;
+            font-weight: bold;
+            /* Add a margin to separate the close button from the modal content */
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+            float: left;
+        }
+
+        /* Button container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        /* Button styles */
+        .btn {
+            margin: 0 5px;
+            /* Add some margin between buttons */
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 14px;
+        }
+
+        /* Card styles */
+ /* Add margin between columns */
+.row-cols-2 > .col {
+    margin-bottom: 20px; /* Add space between rows of cards */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 10px;
+    flex: 1;
+}
+
+
+        .card-text {
+            font-size: 14px;
+            /* Decreased font size */
+        }
+
+        /* Medium-sized container */
+        .container {
+            max-width: 850px;
+            /* Adjusted to medium size */
+            margin: 0 auto;
+            /* Center the container horizontally */
+            padding: 0 15px;
+            /* Added some padding to the sides */
+        }
+
+        /* Bootstrap grid system */
+        @media (min-width: 576px) {
+            .row-cols-2 > * {
+                flex: 0 0 50%;
+                max-width: 60%;
+            }
+             body {
+            background-color: rgb(227, 255, 236); /* Light gray */
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <div th:replace="User/jobseekersmenu::jobseekersmenu"></div>
+
+
+    <div class="container">
+        <br />
+        <h3 class="text-center">View All Vacancies</h3>
+        <!-- Iterate over each vacancy and display it in a card -->
+        <div class="row row-cols-2">
+            <div th:each="vacancies : ${vacanciesList}" class="col">
+                <div class="card">
+                    <div class="card-body text-center">
+						<!-- Display company logo -->
+					 <!-- <img th:src="@{'/uploads/' + ${vacancies.company.logo}}" class="company-logo" alt="Company Logo"/>-->
+                        <h3 class="card-title" th:text="${vacancies.company.companyName}"></h3>
+                        <p class="card-text"><b>Vacancy ID:</b> <span th:text="${vacancies.vacancyId}"></span></p>
+                        <p class="card-text"><b>Job Title:</b> <span th:text="${vacancies.jobTitle}"></span></p>
+                        <p class="card-text"><b>Description:</b> <span th:text="${vacancies.description}"></span></p>
+                        <p class="card-text"><b>Requirements:</b> <span th:text="${vacancies.requirements}"></span></p>
+                        <p class="card-text"><b>Number of Vacancies:</b> <span th:text="${vacancies.noOfVacancies}"></span></p>
+                        <p class="card-text"><b>Post Date:</b> <span th:text="${vacancies.postDate}"></span></p>
+                        <p class="card-text"><b>Open Date:</b> <span th:text="${vacancies.openDate}"></span></p>
+                        <p class="card-text"><b>Close Date:</b> <span th:text="${vacancies.closeDate}"></span></p>
+                        <br/>
+                        <a th:href="@{/jobApply(vacancyId=${vacancies.vacancyId})}" class="btn btn-success">Apply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

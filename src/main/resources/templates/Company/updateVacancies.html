@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+</html>
+<meta charset="UTF-8">
+<title>View Questions</title>
+
+<head th:replace="headers::headers">
+	<div th:include="title::title"></div>
+	<style>
+            /* Add any required styles here */
+            .card {
+                margin-top: 50px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 60%;
+                margin: auto;
+            }
+
+            .card-header {
+                background-color: rgb(128, 0, 128);
+                color: white;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .btn-primary {
+                background-color: rgb(0, 0, 160);
+                border-color: rgb(255, 0, 128);
+            }
+
+            .container {
+                margin-top: 50px;
+                /* Adjust margin-top as needed */
+            }
+
+            /* Responsive CSS */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            /* Adjust styles for smaller screens */
+            @media only screen and (max-width: 768px) {
+                th,
+                td {
+                    padding: 6px;
+                    font-size: 12px;
+                }
+            }
+
+            th {
+                background-color: #4A90E2;
+                /* Unique color for table headers */
+                color: #ffffff;
+                text-align: left;
+                padding: 12px;
+            }
+
+            /* Customize table rows */
+            tr {
+                border-bottom: 1px solid #dddddd;
+                /* Light border between rows */
+            }
+
+            /* Alternate row colors */
+            tbody tr:nth-child(odd) {
+                background-color: rgb(0, 128, 192);
+                /* Light gray for alternate rows */
+            }
+
+            /* Customize table cells */
+            th,
+            td {
+                padding: 12px;
+                border: none;
+            }
+
+            /* Customize hover effect for table rows */
+            tbody tr:hover {
+                background-color: #e6f7ff;
+                /* Light blue when hovering over a row */
+            }
+        </style>
+
+	</head>
+	<body>
+		 <div th:replace="Company/companymenu::companymenu"></div>
+		 
+	 <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Update Vacancies</h3>
+            </div>
+            <div class="card-body">
+                <form th:action="@{/updateVacancies}" method="post" th:object="${vacancy}">
+                    <!-- Input fields for updating vacancy data -->
+                    <input type="hidden" th:name="vacancyId" th:value="${vacancy.vacancyId}">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label><strong>Vacancy ID:</strong></label>
+                            <input type="text" class="form-control" th:name="vacancyId" th:value="${vacancy.vacancyId}" readonly>
+                        </div>
+                        <div class="col-sm-6">
+                            <label><strong>Job Title:</strong></label>
+                            <input type="text" class="form-control" th:name="jobTitle" th:value="${vacancy.jobTitle}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label><strong>Description:</strong></label>
+                            <input type="text" class="form-control" th:name="description" th:value="${vacancy.description}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label><strong>Requirements:</strong></label>
+                            <input type="text" class="form-control" th:name="requirements" th:value="${vacancy.requirements}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label><strong>Number of Vacancies:</strong></label>
+                            <input type="number" class="form-control" th:name="noOfVacancies" th:value="${vacancy.noOfVacancies}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label><strong>Post Date:</strong></label>
+                            <input type="text" class="form-control" th:name="postDate" th:value="${vacancy.postDate}" readonly>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label><strong>Open Date:</strong></label>
+                            <input type="date" class="form-control" th:name="openDate" th:value="${vacancy.openDate}">
+                        </div>
+                        <div class="col-sm-6">
+                            <label><strong>Close Date:</strong></label>
+                            <input type="date" class="form-control" th:name="closeDate" th:value="${vacancy.closeDate}">
+                        </div>
+                    </div>
+                    <br />
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

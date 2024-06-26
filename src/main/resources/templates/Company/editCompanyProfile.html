@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+
+	<head th:replace="headers::headers">
+		<div th:include="title::title"></div>
+		<title>Company Profile</title>
+		
+		</head>
+
+<body>
+	<div th:replace="Company/companymenu::companymenu"></div>
+	<br/>
+	<div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Edit Company Profile</h3>
+            </div>
+            <div class="card-body">
+               <form th:action="@{/updatingCompanyProfile}" method="post" th:object="${company}">
+
+                    <!-- Company details input fields -->
+                    <input type="hidden" th:name="companyId" th:value="${company.companyId}" />
+                     
+                    <div class="form-group">
+                        <label for="companyName"><b>Company Name:</b></label>
+                        <input type="text" th:id="companyName" th:name="companyName" class="form-control" th:value="${company.companyName}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><b>Email:</b></label>
+                        <input type="email" th:id="email" th:name="email" class="form-control" th:value="${company.email}" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="logo"><b>Logo:</b></label>
+                        <input type="logo" th:id="logo" th:name="logo" class="form-control" th:value="${company.logo}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city"><b>City:</b></label>
+                        <input type="text" th:id="city" th:name="city" class="form-control" th:value="${company.city}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state"><b>State:</b></label>
+                        <input type="text" th:id="state" th:name="state" class="form-control" th:value="${company.state}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="companyLevel"><b>Company Level:</b></label>
+                        <input type="text" th:id="companyLevel" th:name="companyLevel" class="form-control" th:value="${company.companyLevel}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="location"><b>Location:</b></label>
+                        <input type="text" th:id="location" th:name="location" class="form-control" th:value="${company.location}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobile"><b>Contact:</b></label>
+                        <input type="text" th:id="mobile" th:name="mobile" class="form-control" th:value="${company.mobile}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regDate"><b>Registration Date:</b></label>
+                        <input type="date" th:id="regDate" th:name="regDate" class="form-control" th:value="${company.regDate}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"><b>Password:</b></label>
+                        <input type="password" th:id="password" th:name="password" class="form-control" th:value="${company.password}" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="password"><b>URL:</b></label>
+                        <input type="text" th:id="url" th:name="url" class="form-control" th:value="${company.url}" required>
+                    </div>
+                    <br/><br/>
+                    <center>
+                    <button type="submit" class="btn btn-primary">Update Profile</button>
+                    </center>
+                </form>
+            </div>
+        </div>
+    </div>
+    <br/>
+</body>
+</html>

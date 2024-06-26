@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View All Vacancies</title>
+    <head th:replace="headers::headers">
+        <div th:include="title::title"></div>
+         <style>
+            /* Add any required styles here */
+            .card {
+                margin-top: 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 80%; /* Change to a percentage value */
+                margin: auto;
+                overflow-x: auto; /* Enable horizontal scrolling on small screens */
+            }
+
+            .card-header {
+                background-color: rgb(128, 0, 128);
+                /* Bootstrap primary color */
+                color: white;
+                width: 100%; /* Ensure the card header spans the entire width */
+                text-align: center;
+            }
+
+            .card-body {
+                padding: 20px;
+            }
+
+            .btn-primary {
+                background-color: rgb(0, 0, 64);
+                border-color: rgb(255, 0, 128);
+            }
+            
+            /* Media query for smaller screens */
+            @media screen and (max-width: 768px) {
+                .card {
+                    width: 90%; /* Adjust width for smaller screens */
+                }
+                
+                .container {
+                    width: 100%; /* Adjust width to fill the entire screen */
+                }
+            }
+        </style>
+    
+</head>
+<body>
+    <div th:replace="Company/companymenu::companymenu"></div>
+    <div class="container">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">View Tests</h3>
+            </div>
+            <div class="card-body">
+				<div class="table-responsive">
+                <table class="table table-hover" id="table_id">
+                    <thead>
+                        <tr>
+                            <th>Vacancy ID</th>
+                            <th>Job Title</th>
+                            <th>Test ID</th>
+                            <th>Test Date</th>
+                            <th>Test Duration</th>
+                            <th>Question</th>
+                            <th>Action</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="test : ${testList}">
+                            <td th:text="${test.vacancies.vacancyId}"></td>
+                            <td th:text="${test.vacancies.jobTitle}"></td>
+                            <td th:text="${test.testId}"></td>
+                            <td th:text="${test.testDate}"></td>
+                            <td th:text="${test.testDuration}"></td>
+                            <td>
+                                <a th:href="@{/addQuestion(testId=${test.testId}, vacancyId=${test.vacancies.vacancyId})}"
+                                    class="btn btn-success">Add Question</a>
+                            </td>
+                            <td>
+                                <a th:href="@{/updateTest/{testId}(testId=${test.testId})}" class="btn btn-warning">Edit</a>
+                            </td>
+                            <td>
+                                <a th:href="@{/deleteTests/{testId}(testId=${test.testId},vacancyId=${test.vacancies.vacancyId})}"
+                                    class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#table_id').DataTable();
+            $('#success_id').slideUp(3000);
+        });
+    </script>
+</body>
+</html>

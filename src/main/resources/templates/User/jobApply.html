@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+
+	<head th:replace="headers::headers">
+		<div th:include="title::title"></div>
+		<title>Jobseeker Apply</title>
+		
+		<link rel="stylesheet" th:href="@{/css/jobApply.css}">
+		</head>
+
+<body>
+	<div th:replace="User/jobseekersmenu::jobseekersmenu"></div>
+	
+	<div class="form-container mt-4">
+        <h2>Apply Form</h2>
+        <form th:action="@{/savejobApply}" method="post" th:object="${jobApply}">
+          <!--  <div class="form-group">
+                <label for="applyId">Apply ID:</label>
+                <input type="text" id="applyId" name="applyId">
+            </div>
+            -->
+            
+            <!--<div class="form-group">
+                <label for="applyDate">Apply Date:</label>
+                <input type="date" id="applyDate" name="applyDate">
+            </div>
+            -->
+            
+            <div class="form-group">
+                <label for="userId">User ID:</label>
+                <input type="number" th:value="${userId}" th:name="userId">
+            </div>
+            <div class="form-group">
+                        <label for="vacancyId">Vacancy Id:</label>
+  <input type="text" class="form-control" th:name="vacancyId" th:value="${vacancyId}" th:field="*{vacancies.vacancyId}" />      
+                </div>
+            
+           
+             <div class="center-button"> 
+            <button type="submit" class="btn-submit">Submit</button>
+        </div>
+        </form>
+    </div>
+</body>
+</html>
+	

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+
+	<head th:replace="headers::headers">
+		<div th:include="title::title"></div>
+		<title>Jobseeker Profile</title>
+		
+		
+		 <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        
+        .container {
+            padding: 20px;
+            margin-top: 50px;
+             max-width: 600px; 
+        }
+        
+        .card {
+            border-radius: 10px;
+            background-color: rgb(209, 213, 254);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        
+        .card-title {
+            color: #343a40; /* Dark gray color for title */
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .form-group label {
+            font-weight: bold;
+            color: #6c757d; /* Gray color for labels */
+        }
+        
+        .form-control {
+            border: 1px solid #ced4da; /* Light gray border */
+            border-radius: 5px;
+        }
+        
+        .btn-custom {
+            background-color: #007bff; /* Blue color for button */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+        
+        .btn-custom:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+		
+		
+		</head>
+
+<body>
+	<div th:replace="User/jobseekersmenu::jobseekersmenu"></div>
+	
+	<div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-10">
+                <div class="card mt-4 shadow">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4 text-center">Update Profile Pic</h4>
+                        <form th:action="@{/updatingPicture}" method="post"
+                            enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="profilePic1">Profile Picture:</label>
+                                <input type="file" class="form-control" th:name="logo1" required>
+                            </div>
+                            <div class="text-center">
+                                <input type="submit" value="Update Image" class="btn btn-custom mt-4">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

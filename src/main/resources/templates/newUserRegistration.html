@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="headers::headers">
+    <div th:include="title::title"></div>
+    <style>
+        body {
+           /* background-color: #c4e496;*/
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+            background-color: #30cfd0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+
+        label {
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            border-radius: 5px;
+            border: 1px solid #ced4da;
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .bg-pattern {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, #2c3e50, #3498db, #9b59b6, #34495e);
+            background-size: 400% 400%;
+            animation: gradientBg 10s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientBg {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <br/><br/>
+    <h2 class="text-center">Add Your Job Seeker</h2>
+    <div class="container card">
+        <form th:action="@{/newUserRegistration}" th:object="${jobSeeker}" method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="userId">User Id</label>
+                    <input type="number" th:field="*{userId}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="firstName">First Name</label>
+                    <input type="text" th:field="*{firstName}" class="form-control" required>
+                </div>
+            
+                <div class="col-sm-6">
+                    <label for="lastName">Last Name</label>
+                    <input type="text" th:field="*{lastName}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="regDate">Register Date</label>
+                    <input type="date" th:field="*{regDate}" class="form-control" required>
+                </div>
+           
+                <div class="col-sm-6">
+                    <label for="dateOfBirth">Date of Birth</label>
+                    <input type="date" th:field="*{dateOfBirth}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="gender">Gender</label>
+                    <input type="text" th:field="*{gender}" class="form-control" required>
+                </div>
+           
+                <div class="col-sm-6">
+                    <label for="email">Email</label>
+                    <input type="text" th:field="*{email}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="mobile">Mobile</label>
+                    <input type="text" th:field="*{mobile}" class="form-control" required>
+                </div>
+            
+                <div class="col-sm-6">
+                    <label for="password">Password</label>
+                    <input type="password" th:field="*{password}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="address">Address</label>
+                    <input type="text" th:field="*{address}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="profilepic">Profile Picture</label>
+                    <input type="file" th:name="profilePic1" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="qualifications">Qualifications</label>
+                    <input type="text" th:field="*{qualifications}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-12">
+                    <label for="experience">Experience</label>
+                    <input type="text" th:field="*{experience}" class="form-control" required>
+                </div>
+            </div>
+            
+            <div class="row text-center">
+                <div class="col-sm-12">
+                    <input type="submit" style="width: 150px" th:name="submit" class="form-control btn btn-outline-dark" value="Add Job Seeker">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 th:text="${responseString}"></h2>
+                </div>
+            </div>
+        </form>
+        <div class="bg-pattern"></div>
+    </div>
+</body>
+</html>
